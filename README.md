@@ -1,7 +1,7 @@
-# Lab Report 1: Hello World
-This is Fakhira Devina's first attempt of using Native Android for Mobile Application development.
+# Lab Report 2: Testing
+Unit Test and Instrumented Test with Kotlin
 
-[Repository](https://github.com/hiradevina/mobile-programming/tree/lab-report/1) 
+[Repository](https://github.com/hiradevina/learn-tktpl-1706979221/tree/lab-2) 
 
 ![Example](https://lh3.googleusercontent.com/pw/ACtC-3dpFX4-g3jpZmrZo_89A2EKJkcQQ25UhG25rHpCH1x9g6_aJBTPS7OX4bkUhz9_NhjgKmxbuPaJyYBHe4lfSyu-jzvf3vRLbbyCv_ydTKAKLtLIsAZSKuV8mHIXBkKTesWOvHAyId-M4U0K5CcTAraR=w407-h846-no?authuser=0)
 ## With whom did you do the task?
