@@ -46,6 +46,7 @@ Caused by: java.lang.IllegalStateException: No instrumentation registered! Must 
 	... 21 more
 ```
 ~~After searching for related error, I still can't figure out the root problem of this error.~~
+### Solved
 > Because I started the project with the template from Android Studio, there are things that I'm unaware of. I fixed the error by moving all the tests file from `test` folder to `androidTest` and change all `testImplementation` dependencies in `app/gradle.build` to `androidTestImplementation`. Also the big changer is this dependencies 
 > ```androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"```
 ### How to run the instrumented test
