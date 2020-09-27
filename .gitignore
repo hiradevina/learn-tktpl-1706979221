@@ -63,7 +63,7 @@ captures/
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
 .cxx/
-
+key.properties
 # Google Services (e.g. APIs or Firebase)
 # google-services.json
 
@@ -288,5 +288,5 @@ fabric.properties
 ### AndroidStudio Patch ###
 
 !/gradle/wrapper/gradle-wrapper.jar
-
+app/keystore.jks
 # End of https://www.toptal.com/developers/gitignore/api/android,androidstudio,kotlin,git,linux,windows,java
