@@ -5,7 +5,10 @@ Unit Test and Instrumented Test, App signing
 
 ![Example](https://lh3.googleusercontent.com/pw/ACtC-3dpFX4-g3jpZmrZo_89A2EKJkcQQ25UhG25rHpCH1x9g6_aJBTPS7OX4bkUhz9_NhjgKmxbuPaJyYBHe4lfSyu-jzvf3vRLbbyCv_ydTKAKLtLIsAZSKuV8mHIXBkKTesWOvHAyId-M4U0K5CcTAraR=w407-h846-no?authuser=0)
 ## Unit Test
-I made a unit test for UI using Espresso. I tested if the FAB is pressed, then the screen should show a Snackbar containing a 'Hello!' text. Unfortunately, I still can't run the test because of this error:
+I made a unit test to test the counter function. The unit test in `SimpleFunctionTest` ensures that the number given in the parameter will always add up by 1.
+## Instrumented Test
+I made instrumented test for UI using Espresso. I tested if the FAB is pressed, then the screen should show a counter of how many times the FAB has been pressed. 
+~~Unfortunately, I still can't run the test because of this error:~~
 ```
 java.lang.RuntimeException: Failed to instantiate test runner class androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 
@@ -42,9 +45,14 @@ Caused by: java.lang.IllegalStateException: No instrumentation registered! Must 
 	at androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner.<init>(AndroidJUnit4ClassRunner.java:48)
 	... 21 more
 ```
-After searching for related error, I still can't figure out the root problem of this error.
-## Instrumented Test
-
+~~After searching for related error, I still can't figure out the root problem of this error.~~
+> Because I started the project with the template from Android Studio, there are things that I'm unaware of. I fixed the error by moving all the tests file from `test` folder to `androidTest` and change all `testImplementation` dependencies in `app/gradle.build` to `androidTestImplementation`. Also the big changer is this dependencies 
+> ```androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"```
+### How to run the instrumented test
+1. Right click on the test file
+![Step 1](https://lh3.googleusercontent.com/XU1fMUvpPwTm75A317C0QnM_a9k-P1RdDyuRazyEt5IhKg48crV-9Kk49_jMb-0Vj0ZBZry5Wzv_Dv-YBB5ww1zTk-50t6VAeIK88bzLA5IQGj3ljzkDmV12-sMijVu1Ru3U3K7vcq_iIAIkjlvCLWA1zxj2C3M66Xd3aCc9DcrEbZpuroxddA5Iyal_yVUcudRIZzPBt5da0NB7mR7Va31h9H8PcpInWRGIhrAkJ03bNpLoqHzEIJaCURwlW3UA5XHSjHYN7PUYOag_jM8LjbwfmVDrvo5SrCShLZpzGrvwDPzatY3bDhqhU_PKoudG0ZsWrQSkZ_0-lhtC2ZrYpp9j0NQ2882qcFZP3DxKAAH5_hJql2yZI_k-SjxGZ3Mnn9I4hN6atBn059rkU_tdhgGyFciaNy92gCOU_U2mK8JCAD-G3IDXRIw-Lz_XjaY9VuFa2cqzd-MWIjauPW8QPDXuF1-pEcgH87HIg848_XS0S4xgk7hr7bhDlex6ypvqOe4Zi71dctyxXuMKmu1pSkGkuhwjagETY6qQwrgXnHWagjNFN9UT3t_zCh5qehxBNgfpFqCZz5FcrXOGEjUH0iDaU79T-gTE29OQf2z9nW_VhegGq4TMwbBLmHT5EBP5govYbo5AODx0TRu-u3LzJTmFtYbtabvvCjbW1-AfcGKdFW_69vwMgkCAi2Wl=w827-h765-no?authuser=0)
+2. The terminal will show this log, and you should see your device instrumenting the test you code in the test file
+![Step 2](https://lh3.googleusercontent.com/0jhAkP6o8T6jr6N3z7y10pFaFysu5gC_Oj5n5h-WescG2R3HS9qb15Rzs02Lsa8fbLlH2McvU9ZJr-apmEqTSrae2KNo951fG4474oYNq8kOVttmN6IfUcLt8aYDPUJU6CK2E2UqKyAyHAUWRbKMJJdPC_2Sz1FRjm13epFYE5v5lyVRBDp7Dfb9MCDYGf46WYcuNtGnrWrVXL7z25AFTPk8bUOAnbyKc0mMdlYm9y2FYI7fvQj8hoIIqeJH6kvTR8vAmlQ_Q_2OeLn3dk5b1JcfxeprkHOABNGAw6IDF3eC7GCls7-xka6v5kTcRG9G79Q5Mo2MzWRkqmpFFdIVUAsc8t5SEssHXAwNbtDO2cyj4uS43QVFiET8U-7C02YqJgWhkzI8jCOQZcsplBH2WE-Z2ZGq7mZ1ZgoY5wdAZ7SB5d6uWNAj9uu35tzBjnGff6eFa1AMY-uvFDvXk_pV06AKQ9A4DOpZWRAMiwQGLLdMijFb8WUXfxKpAeCnzsr5LOCIn63Q5qXhvDMXDT_LcSlluI7D1cXj_gdvrbUJRI3BG5yM8n4CBHlvE6ERT22MkAB1zIW1mVkQml5pQRZLKvNkGRylHogvlDqNArX3W72rZsFYrE-GzwZlOaJ7dw5pCFFqq_VW-84hlRP688Je-o81JZi1rjW4Qg8h36sZZWFL_7N82r9d-Ysy2vj_=w1332-h361-no?authuser=0)
 ## Self sign APK
 Android requires that all APKs be digitally signed with a certificate before they are installed on a device or updated. When signing your app, the signing tool attaches the certificate to your app. The certificate associates the APK or app bundle to you and your corresponding private key. This helps Android ensure that any future updates to your app are authentic and come from the original author. 
 As stated in the [Android documentation](https://developer.android.com/studio/publish/app-signing#sign-apk), here is how I signed my app:
