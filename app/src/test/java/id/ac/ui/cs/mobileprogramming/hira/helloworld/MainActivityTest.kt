@@ -14,18 +14,24 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.Before
-import java.util.regex.Pattern.matches
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class MainActivityTest {
+    private lateinit var stringinSnackBar: String
     @get:Rule
-    val activityRule = ActivityScenarioRule(MainActivity::class.java)
+    val activityRule: ActivityScenarioRule<MainActivity> = ActivityScenarioRule(MainActivity::class.java)
+
+    @Before
+    fun initValidString() {
+        // Specify a valid string.
+        stringinSnackBar = "Hello!"
+    }
 
     @Test fun testPressFab() {
         onView(withId(R.id.fab)).perform(click())
-        onView(withText("Hello!"))
+        onView(withText(stringinSnackBar))
             .check(matches(withEffectiveVisibility(
-                ViewMatchers.Visibility.VISIBLE
+                Visibility.VISIBLE
             )));
 
     }
