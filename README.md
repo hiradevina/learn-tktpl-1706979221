@@ -53,10 +53,10 @@ if (keyStorePropertiesFile.exists()) {
 ```
 signingConfigs {
         config {
-            keyAlias ***keyStoreProperties['keyAlias']***
-            keyPassword ***keyStoreProperties['keyPassword']***
-            storeFile ***keyStoreProperties['storeFile'] ? file(keyStoreProperties['storeFile']) : null***
-            storePassword ***keyStoreProperties['storePassword']***
+            keyAlias keyStoreProperties['keyAlias']
+            keyPassword keyStoreProperties['keyPassword']
+            storeFile keyStoreProperties['storeFile'] ? file(keyStoreProperties['storeFile']) : null
+            storePassword keyStoreProperties['storePassword']
             v2SigningEnabled false
         }
     }
