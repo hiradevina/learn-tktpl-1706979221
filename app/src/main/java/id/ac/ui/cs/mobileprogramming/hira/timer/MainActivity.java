@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Locale;
 
@@ -14,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean running;
     private int second;
+    private boolean doubleBackToExitPressedTwice = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,5 +78,23 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(this, 1000);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedTwice) {
+            super.onBackPressed();
+            return;
+        }
+        this.doubleBackToExitPressedTwice = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_LONG).show();
+        // reset after  2 seconds idle
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedTwice =false;
+            }
+        }, 2000);
     }
 }
