@@ -42,7 +42,6 @@ class GroceryFragment2 : Fragment() {
             editText_jumlah.setText("")
             editText_name.setText("")
         }
-        // TODO: Use the ViewModel
     }
 
 }

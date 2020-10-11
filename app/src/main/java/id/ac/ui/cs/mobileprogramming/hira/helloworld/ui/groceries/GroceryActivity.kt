@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import id.ac.ui.cs.mobileprogramming.hira.helloworld.R
-import id.ac.ui.cs.mobileprogramming.hira.helloworld.data.Grocery
 import id.ac.ui.cs.mobileprogramming.hira.helloworld.utilities.InjectorUtils
 
 
@@ -21,20 +20,17 @@ class GroceryActivity: AppCompatActivity() {
         val groceryFragment : GroceryFragment2 = GroceryFragment2()
         fragTransaction.add(R.id.root_layout, groceryFragment)
         fragTransaction.commit()
-
-        // When button is clicked, instantiate a Quote and add it to DB through the ViewModel
-
         initializeUi()
     }
 
     private fun initializeUi() {
-        // Get the QuotesViewModelFactory with all of it's dependencies constructed
+        // Get the grocerysViewModelFactory with all of it's dependencies constructed
         val factory = InjectorUtils.provideGrocerysViewModelFactory()
-        // Use ViewModelProviders class to create / get already created QuotesViewModel
+        // Use ViewModelProviders class to create / get already created grocerysViewModel
         // for this view (activity)
         val viewModel = ViewModelProvider(this, factory).get(GroceryViewModel::class.java)
 
-        // Observing LiveData from the QuotesViewModel which in turn observes
+        // Observing LiveData from the grocerysViewModel which in turn observes
         // LiveData from the repository, which observes LiveData from the DAO ☺
         viewModel.getGrocery().observe(this, Observer { grocery ->
             if (grocery.isNotEmpty()) {
