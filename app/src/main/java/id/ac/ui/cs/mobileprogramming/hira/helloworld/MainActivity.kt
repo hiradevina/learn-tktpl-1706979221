@@ -1,12 +1,22 @@
 package id.ac.ui.cs.mobileprogramming.hira.helloworld
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.net.wifi.WifiManager
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import id.ac.ui.cs.mobileprogramming.hira.helloworld.APIClient.client
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,9 +25,61 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        // init api client
+        val apiInterface = APIClient.client?.create(ApiEndpoint::class.java)
+
+        // use wifi manager
+        val mWifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+
+        // receiver when finding access point
+        val wifiScanReceiver = object : BroadcastReceiver() {
+
+            override fun onReceive(context: Context, intent: Intent) {
+                val success = intent.getBooleanExtra(WifiManager.EXTRA_RESULTS_UPDATED, false)
+                if (success) {
+                    Log.d("MainActivity", "results ${mWifiManager.scanResults}")
+                    if (mWifiManager.scanResults.isNotEmpty()) {
+                        mWifiManager.scanResults.forEach {
+                            Log.d("MainActivity", it.SSID)
+                            apiInterface?.addWifi(WifiModel(it.SSID))?.enqueue(object :
+                                Callback<WifiModel> {
+                                override fun onFailure(
+                                    call: retrofit2.Call<WifiModel>?,
+                                    t: Throwable?
+                                ) {
+                                    Toast.makeText(context, "Send Wifi Data", Toast.LENGTH_SHORT)
+                                        .show()
+                                }
+
+                                override fun onResponse(
+                                    call: retrofit2.Call<WifiModel>?,
+                                    response: Response<WifiModel>?
+                                ) {
+                                    TODO("Not yet implemented")
+                                }
+                            })
+
+
+                        }
+                    }
+                } else {
+                    Log.d("MainActivity", "failed to get access points")
+                    //scanFailure()
+                }
+            }
+        }
+
+        // register wifi access point receiver
+        val intentFilter = IntentFilter()
+        intentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)
+        applicationContext.registerReceiver(wifiScanReceiver, intentFilter)
+        val success = mWifiManager.startScan()
+        if (!success) {
+        }
+
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+                .setAction("Action", null).show()
         }
     }
 
@@ -36,4 +98,5 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 }
