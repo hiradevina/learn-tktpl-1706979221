@@ -14,8 +14,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        jni_text.text = stringFromJNI()
+        val hasil = intFromJNI(5)
+        jni_text.text = "Hasil : " + hasil
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    external fun stringFromJNI(): String?
+    external fun intFromJNI(num: Int): Int
 
     companion object {
         /*

@@ -23,8 +23,8 @@
  *
  *   hello-jni/app/src/main/java/com/example/hellojni/HelloJni.java
  */
-JNIEXPORT jstring JNICALL
-Java_id_ac_ui_cs_mobileprogramming_hira_helloworld_MainActivity_stringFromJNI( JNIEnv* env, jobject thiz )
+JNIEXPORT jint JNICALL
+Java_id_ac_ui_cs_mobileprogramming_hira_helloworld_MainActivity_intFromJNI( JNIEnv* env, jobject thiz, jint num )
 {
 #if defined(__arm__)
     #if defined(__ARM_ARCH_7A__)
@@ -58,5 +58,5 @@ Java_id_ac_ui_cs_mobileprogramming_hira_helloworld_MainActivity_stringFromJNI( J
 #define ABI "unknown"
 #endif
 
-    return (*env)->NewStringUTF(env, "Hello from JNI !  Compiled with ABI " ABI ".");
+    return num*num;
 }
