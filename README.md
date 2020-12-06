@@ -1,12 +1,18 @@
-# Lab Report 1: Hello World
-This is Fakhira Devina's first attempt of using Native Android for Mobile Application development.
+# Lab Report 6: OpenGL ES, Android NDK, and JNI
+Use native code to compute square value of a number and display the result on view
 
-[Repository](https://github.com/hiradevina/mobile-programming/tree/lab-report/1) 
+[Repository](https://github.com/hiradevina/learn-tktpl-1706979221/tree/lab-jni) 
 
-![Example](https://lh3.googleusercontent.com/pw/ACtC-3dpFX4-g3jpZmrZo_89A2EKJkcQQ25UhG25rHpCH1x9g6_aJBTPS7OX4bkUhz9_NhjgKmxbuPaJyYBHe4lfSyu-jzvf3vRLbbyCv_ydTKAKLtLIsAZSKuV8mHIXBkKTesWOvHAyId-M4U0K5CcTAraR=w407-h846-no?authuser=0)
-## With whom did you do the task?
-I did it myself with the help of tutorial on the first synchronous session with Mr. Adin
-## How did you do the task?
-I already installed Android Studio since a year and a half ago, so I didn't quite remember how did I do the installation part. But for the project itself, I just clicked the option 'New Project' and chose the Basic Activity template. I also changed the text from the existing template to 'Hello World' at the strings.xml
-## Why did you do the task the way you do?
-I chose to use Kotlin because I read from an article that Android Development in the future will mostly use Kotlin instead of Java. I didn't build from the Basic Activity because right now I'm interested to know about the default Android Native project structure and how they all got connected. I read [this tutorial](https://www.tutorialspoint.com/android/index.htm) as I go through all the files in the default project structure to see the connection between them all. I learnt about the purposes of every folder in the /res folder, what AndroidManifest.xml about and what inside it, and the application life cycle. As I learnt, I tried to do a little modification on the text content to change it to Hello World.  
+## Configuration
+1. On `build.gradle` app, add the `ndkVersion` used
+2. Declare the CMake configuration file path on `externalNativeBuild`
+
+## Create Native Code
+1. Create native code in `cpp/hello-jni.c` that compute the square value of  `num` 
+2. Create `cpp/CMakeLists.txt` configuration file, CMake will manage the compilation of the native code based on the config file. Declare the .c file that needs to be compiled and libraries needed.
+3. Create external function in `MainActivity.kt`
+```
+external fun intFromJNI(num: Int): Int
+```
+4. Load the native library on `MainActivity` class initiation 
+5. Call the native function `intFromJni` and place the result on TextView
