@@ -1,12 +1,11 @@
-# Lab Report 1: Hello World
+# Lab Report Cross Platform
 This is Fakhira Devina's first attempt of using Native Android for Mobile Application development.
 
-[Repository](https://github.com/hiradevina/mobile-programming/tree/lab-report/1) 
-
-![Example](https://lh3.googleusercontent.com/pw/ACtC-3dpFX4-g3jpZmrZo_89A2EKJkcQQ25UhG25rHpCH1x9g6_aJBTPS7OX4bkUhz9_NhjgKmxbuPaJyYBHe4lfSyu-jzvf3vRLbbyCv_ydTKAKLtLIsAZSKuV8mHIXBkKTesWOvHAyId-M4U0K5CcTAraR=w407-h846-no?authuser=0)
-## With whom did you do the task?
-I did it myself with the help of tutorial on the first synchronous session with Mr. Adin
-## How did you do the task?
-I already installed Android Studio since a year and a half ago, so I didn't quite remember how did I do the installation part. But for the project itself, I just clicked the option 'New Project' and chose the Basic Activity template. I also changed the text from the existing template to 'Hello World' at the strings.xml
-## Why did you do the task the way you do?
-I chose to use Kotlin because I read from an article that Android Development in the future will mostly use Kotlin instead of Java. I didn't build from the Basic Activity because right now I'm interested to know about the default Android Native project structure and how they all got connected. I read [this tutorial](https://www.tutorialspoint.com/android/index.htm) as I go through all the files in the default project structure to see the connection between them all. I learnt about the purposes of every folder in the /res folder, what AndroidManifest.xml about and what inside it, and the application life cycle. As I learnt, I tried to do a little modification on the text content to change it to Hello World.  
+[Native](https://github.com/hiradevina/mobile-programming/tree/lab-report/1) 
+[Flutter](https://github.com/hiradevina/learn-tktpl-1706979221/tree/lab-cross-platform-flutter)
+Native 
+![Example Native](https://lh3.googleusercontent.com/vPHRiNe8tHphe4MfnPYJMSMQlc1_E8O9PvZJV16Dp0F-Wkd2jaRYGSV9grmRodDgRPi7VfwL0rzP-80uOP1egrlDNgBD6wHOXmesklcfjHkpaptt1ZCCf-zSKKDLIdkvRSgjVWFcrGXiCTjbaGlsm6YW3V2cyyktvFbxQtU2QsAz9426vz6ITRNA9TSqJFzjXM0JOLdqY0Z30HxWXmm3aThL2eJR7mIlElN64L4tDKUJp1Zu9pEATbWx1RwrZKd4yq7Nts4NYn0J-NqJW_J6euB9qbEiY1hdi6vuXit8vEERQPuRCZ0_SPhkk0Jp52xD6oRWxxYEp_ng-OjFGWBwuoMXX9yE7ETaKOcDZ8iVvMhcW61ubxWI2S0y_32sztrKTzlcrmIQy9Rn2zNgJM0ZohUHlKV9-I3CFMhCGEhlJgCz8QkPxovt0JGs32SZUWdA8bCeUKLvK3bGWVKQBf4xzsLFCPMqOPFS1J0TVeH8GGQoOHtouCklX6MvsuHcDj_I1Hl6DF08fjCB9VOKNHudayvUi7BrCx3slWQBc920regsWKVS4Jn_k-KOequO4M-RE5zpBCseF2HK0emXDeQgL1BRko4tw-HmnX3nYtfK7a-DhjuHcpG-2qx6IjI4NMlw31QsVVbGailxXsAGeRRtk1O9t0DXTIWhFg5KEx2tL8Pe49rC_ykrNq4NJ4zC=w372-h615-no?authuser=0)
+Flutter 
+![Example Flutter](https://lh3.googleusercontent.com/zv9nHVb6jTB5FOEwNX0qHz4_5M4jRSc_i5HC0x6NNPE3pYecs0HUgzWhzl245sh_GoSIhLHZ3d4DxrfyXqTXZklMnDy5tRjsecx5zxHWZFDO0daLPUC3nK3L_cMaT30vEsdKdsY40ToO1zF3DNgVjA6qoiCFTRupQXjC19UkO08PqflK_be318hIGyZimJ5oFU2eDW_LxDU1ZbT-9eyqKe0X5TnZHMAFQXLu9ZSvLt5sOrvjPjfnZP-9VRmb8Sfi0dJ5KRPFcPWJeCU29jMhXTrA6h2YavorQZ3qqn3ECNAY8OpkRc-Q_SumXAe89ZYbVJzeJUOA5jWmGc2zj3wvh9jJJYOO2RZ1Zo7WbhwoikGDuqZmRJsUMRqDMyRMoadpO6v8EOAX2v-qmBTih9bRS0gfuzGriXZbCmdOM2tp-tiSnfmBwhjaNNCmNgJOz7jLuUQFMOS4FpdMVor7JLR06PgSp99tszFGB9C8Au0adxeZOeU_OA0_1pYSWcd0JdCfyaLeqndiN1Zs6y4GiEtfHZFeoUznN-9nA-4GJKnnSUytK22Gnd2XaVH72PA1dtAzrJny5aQ0NMcrZ34Xt_WyoTTImn9KZtY_XXbG6TupW6J19ltkkQREtVrw_cGMeDjdRU47qi1nQQnp9cNgh8PYcVuSK16_T_iQGUBjo7J5GYGdCjeaX_amz7dusQml=w372-h614-no?authuser=0)
+## Experience
+I had better experience developing with Flutter, because the build time is faster and only need to edit one file to make the hello world. With Native, I need to clean-rebuild project for 2 times and had a lot of struggle to just build the application. Also, applying changes in Native also takes a lot of time since I need to build the entire project. Flutter has hot reload that can rebuild the widget faster. 
